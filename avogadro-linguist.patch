@@ -1,0 +1,11 @@
+--- cmake/modules/FindLinguist.cmake.orig	2010-07-30 23:48:18.577541674 +0200
++++ cmake/modules/FindLinguist.cmake	2010-07-30 23:48:35.507554042 +0200
+@@ -39,6 +39,8 @@
+   "[HKEY_CURRENT_USER\\Software\\Trolltech\\Qt3Versions\\4.0.0;InstallDir]/bin"
+   "[HKEY_CURRENT_USER\\Software\\Trolltech\\Versions\\4.0.0;InstallDir]/bin"
+   $ENV{QTDIR}/bin
++  /usr/lib64/qt4/bin
++  /usr/lib/qt4/bin
+ )
+ 
+ if(QT_LCONVERT_EXECUTABLE)
