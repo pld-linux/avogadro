@@ -11,6 +11,7 @@ Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
 # fix build with sip 4.10
 URL:		http://avogadro.openmolecules.net/
 Patch0:		%{name}-sip.patch
+Patch1:		%{name}-linguist.patch
 BuildRequires:	boost-devel >= 1.35
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	desktop-file-utils
@@ -50,7 +51,8 @@ libraries.
 
 %prep
 %setup -q
-%patch0 -p1 -b .sip410
+%patch0 -p1
+%patch1 -p0
 
 %build
 install -d build
@@ -63,17 +65,13 @@ cd build
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DLIB_INSTALL_DIR=%{_libdir} \
 	..
-cd ..
-%{__make} -C %{_target_platform}
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install DESTDIR=$RPM_BUILD_ROOT -C %{_target_platform}
-
-# system menu entry
-desktop-file-install --vendor=""                 \
-  --dir=$RPM_BUILD_ROOT%{_desktopdir}  \
-  $RPM_BUILD_ROOT%{_desktopdir}/avogadro.desktop
+%{__make} -C build install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %post libs -p /sbin/ldconfig
 %postun libs -p /sbin/ldconfig
