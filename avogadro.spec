@@ -18,7 +18,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-utils
 BuildRequires:	eigen >= 1:2.0.12
 BuildRequires:	glew-devel >= 1.5.0
-#BuildRequires:	numpy
+BuildRequires:	python-numpy-devel
 BuildRequires:	openbabel-devel >= 2.2.2
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
