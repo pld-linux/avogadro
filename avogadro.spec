@@ -4,7 +4,7 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.0.0
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
@@ -95,6 +95,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libs
 %defattr(644,root,root,755)
-%{py_sitedir}/Avogadro.so
+%{_datadir}/python*/site-packages/Avogadro.so
 %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/*.so.*
