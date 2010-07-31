@@ -4,7 +4,7 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
@@ -12,6 +12,7 @@ Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
 URL:		http://avogadro.openmolecules.net/
 Patch0:		%{name}-sip.patch
 Patch1:		%{name}-linguist.patch
+Patch2:		%{name}-cmake.patch
 BuildRequires:	boost-devel >= 1.35
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	desktop-file-utils
@@ -53,6 +54,7 @@ libraries.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+%patch2 -p1
 
 %build
 install -d build

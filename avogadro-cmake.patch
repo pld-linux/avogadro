@@ -1,0 +1,16 @@
+--- avogadro-1.0.0/cmake/modules/AvogadroConfig.cmake.in~	2009-10-23 21:06:32.000000000 +0200
++++ avogadro-1.0.0/cmake/modules/AvogadroConfig.cmake.in	2010-07-31 09:34:49.143410698 +0200
+@@ -13,10 +13,10 @@
+ 
+ set(Avogadro_INSTALL_PREFIX  "@CMAKE_INSTALL_PREFIX@")
+ set(Avogadro_INCLUDE_DIRS    "@CMAKE_INSTALL_PREFIX@/include")
+-set(Avogadro_LIBRARY_DIRS    "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@")
++set(Avogadro_LIBRARY_DIRS    "@LIB_INSTALL_DIR@")
+ set(Avogadro_LIB_SUFFIX      "@LIB_SUFFIX@")
+-set(Avogadro_PLUGIN_DIR      "@CMAKE_INSTALL_PREFIX@/@Avogadro_PLUGIN_INSTALL_DIR@")
+-set(Avogadro_BIN_DIRS        "@CMAKE_INSTALL_PREFIX@/@BIN_INSTALL_DIR@")
++set(Avogadro_PLUGIN_DIR      "@Avogadro_PLUGIN_INSTALL_DIR@")
++set(Avogadro_BIN_DIRS        "@CMAKE_INSTALL_PREFIX@/@BIN_INSTALL_DIR@")
+ 
+ # Tell the user where to find our build settings and library deps
+ set(Avogadro_BUILD_SETTINGS_FILE
