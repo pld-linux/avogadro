@@ -8,6 +8,7 @@ Release:	2
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
+# Source0-md5:	1146e8ca6cafa558a373d32f38680bcf
 # fix build with sip 4.10
 URL:		http://avogadro.openmolecules.net/
 Patch0:		%{name}-sip.patch
