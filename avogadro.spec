@@ -1,17 +1,17 @@
 
-%define		qtver	4.6.3
+%define		qtver	4.7.0
 
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
-Version:	1.0.0
-Release:	3
+Version:	1.0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
-# Source0-md5:	1146e8ca6cafa558a373d32f38680bcf
+# Source0-md5:	0d5c391197101f0aab7be6b59f81e6fd
 # fix build with sip 4.10
 URL:		http://avogadro.openmolecules.net/
-Patch0:		%{name}-sip.patch
+Patch0:		%{name}-python2.7.patch
 Patch1:		%{name}-linguist.patch
 Patch2:		%{name}-cmake.patch
 BuildRequires:	boost-devel >= 1.35
@@ -53,7 +53,7 @@ libraries.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p0
 %patch1 -p0
 %patch2 -p1
 
