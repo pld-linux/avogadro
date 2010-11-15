@@ -4,7 +4,7 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.0.1
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
