@@ -25,9 +25,11 @@ BuildRequires:	docbook-utils
 BuildRequires:	eigen >= 1:2.0.12
 BuildRequires:	glew-devel >= 1.5.0
 BuildRequires:	openbabel-devel >= 2.2.2
+BuildRequires:	pkgconfig
 BuildRequires:	python-numpy-devel
 BuildRequires:	python-sip-devel
 BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-linguist
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	sip
 Requires:	%{name}-libs = %{version}-%{release}
