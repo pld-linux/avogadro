@@ -15,6 +15,8 @@ Patch0:		%{name}-python2.7.patch
 Patch1:		%{name}-linguist.patch
 Patch2:		%{name}-cmake.patch
 Patch3:		%{name}-sipfix.patch
+BuildRequires:	QtNetwork-devel
+BuildRequires:	QtOpenGL-devel
 BuildRequires:	boost-devel >= 1.35
 BuildRequires:	boost-python-devel
 BuildRequires:	cmake >= 2.8.0
