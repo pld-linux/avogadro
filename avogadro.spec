@@ -1,20 +1,14 @@
-
-%define		qtver	4.7.0
-
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
-Version:	1.0.1
-Release:	9
+Version:	1.0.3
+Release:	1
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
-# Source0-md5:	0d5c391197101f0aab7be6b59f81e6fd
-# fix build with sip 4.10
+# Source0-md5:	92c2702c1980f70fb6d87a1a58147911
+Patch0:		%{name}-linguist.patch
+Patch1:		%{name}-cmake.patch
 URL:		http://avogadro.openmolecules.net/
-Patch0:		%{name}-python2.7.patch
-Patch1:		%{name}-linguist.patch
-Patch2:		%{name}-cmake.patch
-Patch3:		%{name}-sipfix.patch
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
 BuildRequires:	boost-devel >= 1.35
@@ -28,9 +22,9 @@ BuildRequires:	openbabel-devel >= 2.2.2
 BuildRequires:	pkgconfig
 BuildRequires:	python-numpy-devel
 BuildRequires:	python-sip-devel
-BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-build >= 4.8.2-5
 BuildRequires:	qt4-linguist
-BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	qt4-qmake >= 4.8.2-5
 BuildRequires:	sip
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,9 +55,7 @@ libraries.
 %prep
 %setup -q
 %patch0 -p0
-%patch1 -p0
-%patch2 -p1
-%patch3 -p0
+%patch1 -p1
 
 %build
 install -d build
@@ -73,16 +65,18 @@ cd build
 	-DENABLE_PYTHON=ON \
 	-DENABLE_UPDATE_CHECKER=OFF \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DLIB_INSTALL_DIR=%{_libdir} \
 	..
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/qt4/mkspecs/features
+
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__mv} $RPM_BUILD_ROOT{%{_prefix},%{_datadir}/qt4/mkspecs}/features/avogadro.prf
 
 %post libs -p /sbin/ldconfig
 %postun libs -p /sbin/ldconfig
@@ -94,18 +88,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog COPYING
 %attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/avopkg
 %{_datadir}/%{name}
 %{_pixmapsdir}/%{name}-icon.png
 %{_desktopdir}/%{name}.desktop
+%{_mandir}/man1/avogadro.1*
+%{_mandir}/man1/avopkg.1*
 
 %files devel
 %defattr(644,root,root,755)
 %{_datadir}/lib%{name}
 %{_includedir}/%{name}
 %{_libdir}/*.so
+%{_datadir}/qt4/mkspecs/features/avogadro.prf
 
 %files libs
 %defattr(644,root,root,755)
-%{_datadir}/python*/site-packages/Avogadro.so
+%{py_sitedir}/Avogadro.so
 %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/*.so.*
