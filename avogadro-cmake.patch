@@ -1,16 +1,24 @@
---- avogadro-1.0.0/cmake/modules/AvogadroConfig.cmake.in~	2009-10-23 21:06:32.000000000 +0200
-+++ avogadro-1.0.0/cmake/modules/AvogadroConfig.cmake.in	2010-07-31 09:34:49.143410698 +0200
-@@ -13,10 +13,10 @@
- 
- set(Avogadro_INSTALL_PREFIX  "@CMAKE_INSTALL_PREFIX@")
- set(Avogadro_INCLUDE_DIRS    "@CMAKE_INSTALL_PREFIX@/include")
--set(Avogadro_LIBRARY_DIRS    "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@")
-+set(Avogadro_LIBRARY_DIRS    "@LIB_INSTALL_DIR@")
- set(Avogadro_LIB_SUFFIX      "@LIB_SUFFIX@")
--set(Avogadro_PLUGIN_DIR      "@CMAKE_INSTALL_PREFIX@/@Avogadro_PLUGIN_INSTALL_DIR@")
--set(Avogadro_BIN_DIRS        "@CMAKE_INSTALL_PREFIX@/@BIN_INSTALL_DIR@")
-+set(Avogadro_PLUGIN_DIR      "@Avogadro_PLUGIN_INSTALL_DIR@")
-+set(Avogadro_BIN_DIRS        "@CMAKE_INSTALL_PREFIX@/@BIN_INSTALL_DIR@")
- 
- # Tell the user where to find our build settings and library deps
- set(Avogadro_BUILD_SETTINGS_FILE
+diff -ur avogadro-1.0.3/CMakeLists.txt avogadro-1.0.3-mkspecs-dir/CMakeLists.txt
+--- avogadro-1.0.3/CMakeLists.txt	2011-04-25 07:29:58.000000000 +0200
++++ avogadro-1.0.3-mkspecs-dir/CMakeLists.txt	2011-04-27 02:42:26.000000000 +0200
+@@ -491,7 +491,7 @@
+ if(QT_MKSPECS_DIR AND INSTALL_QMAKE_PRF)
+     install(FILES
+       "${CMAKE_CURRENT_BINARY_DIR}/avogadro.prf"
+-      DESTINATION "${CMAKE_INSTALL_PREFIX}/${QT_MKSPECS_RELATIVE}/features"
++      DESTINATION "${QT_MKSPECS_DIR}/features"
+     )
+ else(QT_MKSPECS_DIR AND INSTALL_QMAKE_PRF)
+   message(WARNING "Qt mkspecs directory not found. File 'avogadro.prf' will be installed to ${SHARE_INSTALL_PREFIX}/avogadro/qmake.")
+diff -ur avogadro-1.0.3/CMakeLists.txt avogadro-1.0.3-no-strip/CMakeLists.txt
+--- avogadro-1.0.3/CMakeLists.txt	2011-04-25 07:29:58.000000000 +0200
++++ avogadro-1.0.3-no-strip/CMakeLists.txt	2011-04-27 18:44:02.000000000 +0200
+@@ -98,7 +98,7 @@
+ 	endif (NOT APPLE)
+   # Set up additional build flags for particular build types. These will be added to CMAKE_CXX_FLAGS,
+   # they will not replace them.
+-  set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG -DQT_NO_DEBUG_OUTPUT -Wl,-s")
++  set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG -DQT_NO_DEBUG_OUTPUT")
+   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO
+     "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} ${CMAKE_CXX_FLAGS_WARN}")
+   set(CMAKE_CXX_FLAGS_DEBUG   "-g3 -fno-inline ${CMAKE_CXX_FLAGS_WARN}")
