@@ -47,6 +47,7 @@ Avogadro.
 Summary:	Development files for Avogadro
 Group:		Development/Libraries
 Requires:	%{name}-libs = %{version}-%{release}
+Requires:	glew-devel
 
 %description devel
 This package contains files to develop applications using Avogadros
