@@ -1,13 +1,14 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.0.3
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
 # Source0-md5:	92c2702c1980f70fb6d87a1a58147911
 Patch0:		%{name}-linguist.patch
 Patch1:		%{name}-cmake.patch
+Patch2:		%{name}-moc-boost.patch
 URL:		http://avogadro.openmolecules.net/
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
@@ -57,6 +58,7 @@ libraries.
 %setup -q
 %patch0 -p0
 %patch1 -p1
+%patch2 -p1
 
 %build
 install -d build

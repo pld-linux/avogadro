@@ -1,0 +1,65 @@
+diff -ur avogadro-1.0.3/libavogadro/src/pythonengine_p.h avogadro-1.0.3-moc/libavogadro/src/pythonengine_p.h
+--- avogadro-1.0.3/libavogadro/src/pythonengine_p.h	2011-04-25 07:22:18.000000000 +0200
++++ avogadro-1.0.3-moc/libavogadro/src/pythonengine_p.h	2013-07-26 20:59:15.179652964 +0200
+@@ -27,7 +27,9 @@
+ 
+ #include <avogadro/global.h>
+ #include <avogadro/engine.h>
++#ifndef Q_MOC_RUN
+ #include <boost/python.hpp>
++#endif
+ 
+ namespace Avogadro {
+ 
+diff -ur avogadro-1.0.3/libavogadro/src/pythonextension_p.h avogadro-1.0.3-moc/libavogadro/src/pythonextension_p.h
+--- avogadro-1.0.3/libavogadro/src/pythonextension_p.h	2011-04-25 07:22:18.000000000 +0200
++++ avogadro-1.0.3-moc/libavogadro/src/pythonextension_p.h	2013-07-26 20:58:34.125949694 +0200
+@@ -29,7 +29,9 @@
+ #include <avogadro/extension.h>
+ #include <avogadro/primitive.h>
+ #include <avogadro/glwidget.h>
++#ifndef Q_MOC_RUN
+ #include <boost/python.hpp>
++#endif
+ 
+ #include <QWidget>
+ #include <QList>
+diff -ur avogadro-1.0.3/libavogadro/src/pythoninterpreter.h avogadro-1.0.3-moc/libavogadro/src/pythoninterpreter.h
+--- avogadro-1.0.3/libavogadro/src/pythoninterpreter.h	2011-04-25 07:22:18.000000000 +0200
++++ avogadro-1.0.3-moc/libavogadro/src/pythoninterpreter.h	2013-07-26 21:01:46.450577203 +0200
+@@ -26,7 +26,9 @@
+ #define PYTHONINTERPRETER_H
+ 
+ #include <avogadro/global.h>
++#ifndef Q_MOC_RUN
+ #include <boost/python.hpp>
++#endif
+ #include <avogadro/primitive.h>
+ #include <QString>
+ 
+diff -ur avogadro-1.0.3/libavogadro/src/pythonscript.h avogadro-1.0.3-moc/libavogadro/src/pythonscript.h
+--- avogadro-1.0.3/libavogadro/src/pythonscript.h	2011-04-25 07:22:18.000000000 +0200
++++ avogadro-1.0.3-moc/libavogadro/src/pythonscript.h	2013-07-26 21:01:53.590641481 +0200
+@@ -27,7 +27,9 @@
+ #define PYTHONSCRIPT_H
+ 
+ #include <avogadro/global.h>
++#ifndef Q_MOC_RUN
+ #include <boost/python.hpp>
++#endif
+ 
+ #include "pythonerror.h"
+ 
+diff -ur avogadro-1.0.3/libavogadro/src/pythontool_p.h avogadro-1.0.3-moc/libavogadro/src/pythontool_p.h
+--- avogadro-1.0.3/libavogadro/src/pythontool_p.h	2011-04-25 07:22:18.000000000 +0200
++++ avogadro-1.0.3-moc/libavogadro/src/pythontool_p.h	2013-07-26 20:58:56.839487711 +0200
+@@ -27,7 +27,9 @@
+ 
+ #include <avogadro/global.h>
+ #include <avogadro/tool.h>
++#ifndef Q_MOC_RUN
+ #include <boost/python.hpp>
++#endif
+ 
+ #include <QObject>
+ #include <QAction>
