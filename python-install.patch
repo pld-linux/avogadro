@@ -1,0 +1,11 @@
+--- avogadro-1.0.3/libavogadro/src/python/CMakeLists.txt~	2011-04-25 07:22:18.000000000 +0200
++++ avogadro-1.0.3/libavogadro/src/python/CMakeLists.txt	2015-12-27 12:52:50.039007792 +0100
+@@ -25,7 +25,7 @@
+ 
+ # Let's try to use this instead:
+ EXECUTE_PROCESS(COMMAND ${PYTHON_EXECUTABLE} -c
+-    "from sys import stdout; from distutils import sysconfig; stdout.write(sysconfig.get_python_lib(1))"
++    "from sys import stdout; from distutils import sysconfig; stdout.write(sysconfig.get_python_lib(plat_specific=1, prefix='/usr'))"
+     OUTPUT_VARIABLE PYTHON_LIB_PATH)
+ 
+ message(STATUS "Python site-packages directory: ${PYTHON_LIB_PATH}")
