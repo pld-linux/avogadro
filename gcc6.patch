@@ -1,0 +1,19 @@
+diff -ur avogadro-1.2.0/libavogadro/src/extensions/symmetry/libmsym/src/orbital.c avogadro-1.2.0.build/libavogadro/src/extensions/symmetry/libmsym/src/orbital.c
+--- avogadro-1.2.0/libavogadro/src/extensions/symmetry/libmsym/src/orbital.c	2016-06-08 16:19:45.000000000 +0200
++++ avogadro-1.2.0.build/libavogadro/src/extensions/symmetry/libmsym/src/orbital.c	2017-04-13 11:56:21.795761712 +0200
+@@ -67,13 +67,13 @@
+         }
+         case 2 : {
+             //o->v = dpolynomial[m+l];
+-            char *d = (signbit(m) == 1 ? "-" : "+");
++            char *d = (m < 0 ? "-" : "+");
+             snprintf(o->name, sizeof(o->name), "%dd%d%s",n,abs(m),d);
+             break;
+         }
+         default : {
+             char t = 'f' - 3 + l;
+-            char *d = (signbit(m) == 1 ? "-" : "+");
++            char *d = (m < 0 ? "-" : "+");
+             snprintf(o->name, sizeof(o->name), "%d%c%d%s",n,t,abs(m),d);
+         }
+     }

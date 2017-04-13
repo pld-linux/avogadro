@@ -1,15 +1,15 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
-Version:	1.0.3
+Version:	1.2.0
 Release:	17
 License:	GPL v2
 Group:		Applications/Editors
-Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.bz2
-# Source0-md5:	92c2702c1980f70fb6d87a1a58147911
+Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
+# Source0-md5:	3206068fc27bd3b717c568ee72f1e5ec
 Patch0:		%{name}-linguist.patch
 Patch1:		%{name}-cmake.patch
 Patch2:		%{name}-moc-boost.patch
-Patch3:		link-X11.patch
+Patch3:		gcc6.patch
 Patch4:		python-install.patch
 URL:		http://avogadro.openmolecules.net/
 BuildRequires:	QtNetwork-devel
@@ -74,7 +74,7 @@ cd build
 	-DCMAKE_BUILD_TYPE=Release \
 	..
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -91,9 +91,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING
+%doc AUTHORS COPYING
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/avopkg
+%attr(755,root,root) %{_bindir}/qube
 %{_datadir}/%{name}
 %{_pixmapsdir}/%{name}-icon.png
 %{_desktopdir}/%{name}.desktop
@@ -106,6 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/%{name}
 %{_libdir}/*.so
 %{_datadir}/qt4/mkspecs/features/avogadro.prf
+%{_pkgconfigdir}/avogadro.pc
 
 %files libs
 %defattr(644,root,root,755)
