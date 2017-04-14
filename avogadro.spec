@@ -1,7 +1,7 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.2.0
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
@@ -83,7 +83,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/qt4/mkspecs/features
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%if "%{_lib}" != "lib"
 %{__mv} $RPM_BUILD_ROOT{%{_prefix}/lib,%{_libdir}}/libmsym.so
+%endif
 
 %post libs -p /sbin/ldconfig
 %postun libs -p /sbin/ldconfig
