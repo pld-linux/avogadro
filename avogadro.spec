@@ -1,7 +1,7 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.2.0
-Release:	5
+Release:	6
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
@@ -29,6 +29,7 @@ BuildRequires:	qt4-build >= 4.8.2-5
 BuildRequires:	qt4-linguist
 BuildRequires:	qt4-qmake >= 4.8.2-5
 BuildRequires:	sip
+BuildConflicts:	eigen3
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
