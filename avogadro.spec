@@ -1,7 +1,7 @@
 Summary:	An advanced molecular editor for chemical purposes
 Name:		avogadro
 Version:	1.2.0
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
@@ -11,6 +11,8 @@ Patch1:		%{name}-cmake.patch
 Patch2:		%{name}-moc-boost.patch
 Patch3:		gcc6.patch
 Patch4:		python-install.patch
+Patch5:		avogadro_eigen3.patch
+Patch6:		boost-python.patch
 URL:		http://avogadro.openmolecules.net/
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtOpenGL-devel
@@ -19,7 +21,7 @@ BuildRequires:	boost-python-devel
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-utils
-BuildRequires:	eigen >= 1:2.0.12
+BuildRequires:	eigen3
 BuildRequires:	glew-devel >= 1.5.0
 BuildRequires:	openbabel-devel >= 2.2.2
 BuildRequires:	pkgconfig
@@ -29,7 +31,6 @@ BuildRequires:	qt4-build >= 4.8.2-5
 BuildRequires:	qt4-linguist
 BuildRequires:	qt4-qmake >= 4.8.2-5
 BuildRequires:	sip
-BuildConflicts:	eigen3
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,6 +65,8 @@ libraries.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %build
 install -d build
