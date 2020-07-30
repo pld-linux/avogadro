@@ -2,12 +2,11 @@ Summary:	An advanced molecular editor for chemical purposes
 Summary(pl.UTF-8):	Zaawansowany edytor molekularny do zastosowań chemicznych
 Name:		avogadro
 Version:	1.2.0
-Release:	10
+Release:	11
 License:	GPL v2+
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
 # Source0-md5:	3206068fc27bd3b717c568ee72f1e5ec
-Patch0:		%{name}-linguist.patch
 Patch1:		%{name}-cmake.patch
 Patch2:		%{name}-moc-boost.patch
 Patch3:		gcc6.patch
@@ -85,7 +84,6 @@ Avogadro.
 
 %prep
 %setup -q
-%patch0 -p0
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -96,6 +94,7 @@ Avogadro.
 %build
 install -d build
 cd build
+export QTDIR=%{_libdir}/qt4
 %cmake .. \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DENABLE_GLSL=ON \
