@@ -1,7 +1,7 @@
-diff -ur avogadro-1.0.3/CMakeLists.txt avogadro-1.0.3-mkspecs-dir/CMakeLists.txt
---- avogadro-1.0.3/CMakeLists.txt	2011-04-25 07:29:58.000000000 +0200
-+++ avogadro-1.0.3-mkspecs-dir/CMakeLists.txt	2011-04-27 02:42:26.000000000 +0200
-@@ -95,8 +95,6 @@
+diff -urNp -x '*.orig' avogadro-1.2.0.org/CMakeLists.txt avogadro-1.2.0/CMakeLists.txt
+--- avogadro-1.2.0.org/CMakeLists.txt	2016-06-08 16:19:45.000000000 +0200
++++ avogadro-1.2.0/CMakeLists.txt	2021-08-17 17:23:31.247260410 +0200
+@@ -95,8 +95,6 @@ if (CMAKE_COMPILER_IS_GNUCXX)
    if(NOT APPLE) # Mac GCC42 compiler has bug
      check_cxx_compiler_flag(-fvisibility=hidden HAVE_GCC_VISIBILITY)
      set(HAVE_GCC_VISIBILITY ${HAVE_GCC_VISIBILITY} CACHE BOOL "GCC support for hidden visibility")
@@ -10,8 +10,8 @@ diff -ur avogadro-1.0.3/CMakeLists.txt avogadro-1.0.3-mkspecs-dir/CMakeLists.txt
      set(_GCC_COMPILED_WITH_BAD_ALLOCATOR FALSE)
      if (GCC_IS_NEWER_THAN_4_1)
        exec_program(${CMAKE_C_COMPILER} ARGS -v OUTPUT_VARIABLE _gcc_alloc_info)
-@@ -98,7 +98,7 @@
- 	endif (NOT APPLE)
+@@ -114,7 +112,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
+   endif()
    # Set up additional build flags for particular build types. These will be added to CMAKE_CXX_FLAGS,
    # they will not replace them.
 -  set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG -DQT_NO_DEBUG_OUTPUT -Wl,-s")
@@ -19,19 +19,19 @@ diff -ur avogadro-1.0.3/CMakeLists.txt avogadro-1.0.3-mkspecs-dir/CMakeLists.txt
    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO
      "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} ${CMAKE_CXX_FLAGS_WARN}")
    set(CMAKE_CXX_FLAGS_DEBUG   "-g3 -fno-inline ${CMAKE_CXX_FLAGS_WARN}")
-@@ -491,7 +491,7 @@
- if(QT_MKSPECS_DIR AND INSTALL_QMAKE_PRF)
+@@ -552,7 +550,7 @@ if(QT_MKSPECS_DIR AND INSTALL_QMAKE_PRF)
+ #    )
      install(FILES
        "${CMAKE_CURRENT_BINARY_DIR}/avogadro.prf"
 -      DESTINATION "${CMAKE_INSTALL_PREFIX}/${QT_MKSPECS_RELATIVE}/features"
 +      DESTINATION "${QT_MKSPECS_DIR}/features"
      )
- else(QT_MKSPECS_DIR AND INSTALL_QMAKE_PRF)
-   message(WARNING "Qt mkspecs directory not found. File 'avogadro.prf' will be installed to ${SHARE_INSTALL_PREFIX}/avogadro/qmake.")
-diff -ur avogadro-1.2.0/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt avogadro-1.2.0.build/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt
---- avogadro-1.2.0/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt	2016-06-08 16:19:45.000000000 +0200
-+++ avogadro-1.2.0.build/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt	2017-04-13 11:58:44.627114834 +0200
-@@ -38,6 +38,7 @@
+ #  endif ("${QT_MKSPECS_DIR}" MATCHES ^$"${CMAKE_INSTALL_PREFIX}/")
+ else()
+diff -urNp -x '*.orig' avogadro-1.2.0.org/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt avogadro-1.2.0/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt
+--- avogadro-1.2.0.org/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt	2016-06-08 16:19:45.000000000 +0200
++++ avogadro-1.2.0/libavogadro/src/extensions/symmetry/libmsym/CMakeLists.txt	2021-08-17 17:23:31.247260410 +0200
+@@ -38,6 +38,7 @@ set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -st
  #        C_STANDARD_REQUIRED ON)
  
  set_target_properties(msym PROPERTIES PUBLIC_HEADER "src/msym.h;src/msym_error.h")

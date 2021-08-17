@@ -96,6 +96,7 @@ install -d build
 cd build
 export QTDIR=%{_libdir}/qt4
 %cmake .. \
+	-DCMAKE_CXX_FLAGS="%{rpmcxxflags}" \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DENABLE_GLSL=ON \
 	-DENABLE_PYTHON=ON \
