@@ -31,6 +31,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	openbabel-devel >= 2.2.2
 BuildRequires:	pkgconfig
 BuildRequires:	python-numpy-devel
+BuildRequires:	python-sip
 BuildRequires:	python-sip-devel
 BuildRequires:	qt4-build >= 4.8.2-5
 BuildRequires:	qt4-linguist >= 4.8.2-5
