@@ -36,6 +36,7 @@ BuildRequires:	python-sip-devel
 BuildRequires:	qt4-build >= 4.8.2-5
 BuildRequires:	qt4-linguist >= 4.8.2-5
 BuildRequires:	qt4-qmake >= 4.8.2-5
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	sip
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	zlib-devel
