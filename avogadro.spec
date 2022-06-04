@@ -2,7 +2,7 @@ Summary:	An advanced molecular editor for chemical purposes
 Summary(pl.UTF-8):	Zaawansowany edytor molekularny do zastosowań chemicznych
 Name:		avogadro
 Version:	1.2.0
-Release:	13
+Release:	14
 License:	GPL v2+
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
