@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	python		# python support
+
 Summary:	An advanced molecular editor for chemical purposes
 Summary(pl.UTF-8):	Zaawansowany edytor molekularny do zastosowań chemicznych
 Name:		avogadro
@@ -21,7 +25,6 @@ BuildRequires:	QtGui-devel >= 4.6.0
 BuildRequires:	QtNetwork-devel >= 4.6.0
 BuildRequires:	QtOpenGL-devel >= 4.6.0
 BuildRequires:	boost-devel >= 1.37.0
-BuildRequires:	boost-python-devel >= 1.37.0
 BuildRequires:	cmake >= 2.8.11
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-utils
@@ -30,16 +33,19 @@ BuildRequires:	glew-devel >= 1.5.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	openbabel-devel >= 2.2.2
 BuildRequires:	pkgconfig
-BuildRequires:	python-numpy-devel
-BuildRequires:	python-sip
-BuildRequires:	python-sip-devel
 BuildRequires:	qt4-build >= 4.8.2-5
 BuildRequires:	qt4-linguist >= 4.8.2-5
 BuildRequires:	qt4-qmake >= 4.8.2-5
-BuildRequires:	rpmbuild(macros) >= 1.605
-BuildRequires:	sip
+BuildRequires:	rpmbuild(macros) >= 1.742
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	zlib-devel
+%if %{with python}
+BuildRequires:	boost-python-devel >= 1.37.0
+BuildRequires:	python-numpy-devel
+BuildRequires:	python-sip
+BuildRequires:	python-sip-devel
+BuildRequires:	sip
+%endif
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -101,7 +107,7 @@ export QTDIR=%{_libdir}/qt4
 	-DCMAKE_CXX_FLAGS="%{rpmcxxflags}" \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DENABLE_GLSL=ON \
-	-DENABLE_PYTHON=ON \
+	%{cmake_on_off python ENABLE_PYTHON} \
 	-DENABLE_UPDATE_CHECKER=OFF \
 	-DINSTALL_CMAKE_DIR:PATH=%{_lib}/cmake/libmsym \
 	-DINSTALL_LIB_DIR:PATH=%{_lib}
@@ -251,7 +257,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(zh) %{_datadir}/%{name}/i18n/libavogadro_zh_CN.qm
 %lang(zh) %{_datadir}/%{name}/i18n/libavogadro_zh_TW.qm
 # %files -n python-avogadro ?
-%attr(755,root,root) %{py_sitedir}/Avogadro.so
+%{?with_python:%attr(755,root,root) %{py_sitedir}/Avogadro.so}
 
 %files devel
 %defattr(644,root,root,755)
