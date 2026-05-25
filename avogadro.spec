@@ -6,7 +6,7 @@ Summary:	An advanced molecular editor for chemical purposes
 Summary(pl.UTF-8):	Zaawansowany edytor molekularny do zastosowań chemicznych
 Name:		avogadro
 Version:	1.2.0
-Release:	16
+Release:	17
 License:	GPL v2+
 Group:		Applications/Editors
 Source0:	http://downloads.sourceforge.net/avogadro/%{name}-%{version}.tar.gz
@@ -17,6 +17,7 @@ Patch3:		gcc6.patch
 Patch4:		python-install.patch
 Patch5:		avogadro_eigen3.patch
 Patch6:		boost-python.patch
+Patch7:		gcc15.patch
 URL:		http://avogadro.openmolecules.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	OpenGL-GLU-devel
@@ -98,6 +99,7 @@ Avogadro.
 %patch -P4 -p1
 %patch -P5 -p1
 %patch -P6 -p1
+%patch -P7 -p1
 
 %build
 install -d build
