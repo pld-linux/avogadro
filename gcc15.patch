@@ -1,5 +1,5 @@
---- /home/users/baggins/rpm/BUILD/avogadro-1.2.0-build/avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/Core3DMath.c~	2016-06-08 16:19:45.000000000 +0200
-+++ /home/users/baggins/rpm/BUILD/avogadro-1.2.0-build/avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/Core3DMath.c	2026-05-26 00:07:26.450027464 +0200
+--- avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/Core3DMath.c~	2016-06-08 16:19:45.000000000 +0200
++++ avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/Core3DMath.c	2026-05-26 00:07:26.450027464 +0200
 @@ -13,6 +13,7 @@
  
  // Added for Avogadro:
@@ -8,8 +8,8 @@
  
  	/* G L O B A L S */
  	
---- /home/users/baggins/rpm/BUILD/avogadro-1.2.0-build/avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/eprintf.c~	2016-06-08 16:19:45.000000000 +0200
-+++ /home/users/baggins/rpm/BUILD/avogadro-1.2.0-build/avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/eprintf.c	2026-05-26 00:09:03.903842461 +0200
+--- avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/eprintf.c~	2016-06-08 16:19:45.000000000 +0200
++++ avogadro-1.2.0/libavogadro/src/extensions/swcntbuilder/tubegen/eprintf.c	2026-05-26 00:09:03.903842461 +0200
 @@ -10,6 +10,8 @@
  
  #include "eprintf.h"
